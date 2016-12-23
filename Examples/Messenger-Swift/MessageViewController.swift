@@ -119,22 +119,22 @@ extension MessageViewController {
     
     // MARK: - Example's Configuration
     
-    func configureDataSource() {
-        
-        var array = [Message]()
-        
-        for _ in 0..<100 {
-            let words = Int((arc4random() % 40)+1)
-            let message = Message()
-            message.username = LoremIpsum.name()
-            message.text = LoremIpsum.words(withNumber: words)
-            array.append(message)
-        }
-        
-        let reversed = array.reversed()
-        
-        self.messages.append(contentsOf: reversed)
-    }
+//    func configureDataSource() {
+//        
+//        var array = [Message]()
+//        
+//        for _ in 0..<100 {
+//            let words = Int((arc4random() % 40)+1)
+//            let message = Message()
+//            message.username = LoremIpsum.name()
+//            message.text = LoremIpsum.words(withNumber: words)
+//            array.append(message)
+//        }
+//        
+//        let reversed = array.reversed()
+//        
+//        self.messages.append(contentsOf: reversed)
+//    }
     
     func configureActionItems() {
         
@@ -392,7 +392,7 @@ extension MessageViewController {
         self.textView.refreshFirstResponder()
         
         let message = Message()
-        message.username = "You"
+        message.user = .You
         message.text = self.textView.text
         
         insertMessage(message)
@@ -405,7 +405,7 @@ extension MessageViewController {
     func receivedQuestion(_ message: Message) {
         
         let message = Message()
-        message.username = "Robot"
+        message.user = .Robot
         message.text = "yoo"
         
         insertMessage(message)
@@ -599,7 +599,12 @@ extension MessageViewController {
 
         let message = self.messages[(indexPath as NSIndexPath).row]
         
-        cell.labelView.text = message.username
+        if message.user == .You {
+            cell.isUser = true
+        }
+        cell.configureSubviews()
+        
+        cell.labelView.text = "\(message.user)"
         cell.textView.text = message.text
         
         cell.indexPath = indexPath
@@ -659,7 +664,7 @@ extension MessageViewController {
             var width = tableView.frame.width - MessageTableViewCell.kMessageTableViewCellAvatarHeight
             width -= 25.0
             
-            let titleBounds = (message.username as NSString).boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+            let titleBounds = ("\(message.user)" as NSString).boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
             let bodyBounds = (message.text as NSString).boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
             
             if message.text.characters.count == 0 {

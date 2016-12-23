@@ -9,6 +9,10 @@
 import Foundation
 
 class Message {
-    var username: String!
+    var user: User = .Robot
     var text: String!
+}
+
+enum User {
+    case You, Robot
 }

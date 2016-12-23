@@ -23,7 +23,7 @@ class MessageTableViewCell: UITableViewCell {
             if _labelView == nil {
                 _labelView = UILabel()
                 _labelView?.translatesAutoresizingMaskIntoConstraints = false
-                _labelView?.backgroundColor = UIColor.lightGray
+                _labelView?.backgroundColor = UIColor.clear
                 _labelView?.isUserInteractionEnabled = false
                 _labelView?.numberOfLines = 0
                 _labelView?.textColor = UIColor.black
@@ -39,25 +39,28 @@ class MessageTableViewCell: UITableViewCell {
             if _textView == nil {
                 _textView = UITextView()
                 _textView?.translatesAutoresizingMaskIntoConstraints = false
-                _textView?.backgroundColor = UIColor.clear
+                _textView?.backgroundColor = UIColor.lightGray
                 _textView?.isUserInteractionEnabled = false
-                _textView?.textColor = UIColor.darkGray
+                _textView?.textColor = UIColor.black
                 _textView?.font = UIFont.systemFont(ofSize: MessageTableViewCell.defaultFontSize())
+                
+                _textView?.layer.cornerRadius = 10
+                _textView?.layer.masksToBounds = true
             }
             
             return _textView!
         }
     }
-//    var _webView: UIWebView?
-//    var webView: UIWebView {
-//        get {
-//            if _webView == nil {
-//                _webView = UIWebView()
-//            }
-//            
-//            return _webView!
-//        }
-//    }
+    var _webView: UIWebView?
+    var webView: UIWebView {
+        get {
+            if _webView == nil {
+                _webView = UIWebView()
+            }
+            
+            return _webView!
+        }
+    }
     var _thumbnailView: UIImageView?
     var thumbnailView: UIImageView {
         get {
@@ -67,7 +70,7 @@ class MessageTableViewCell: UITableViewCell {
                 _thumbnailView?.isUserInteractionEnabled = false
                 _thumbnailView?.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
                 
-//                _thumbnailView?.layer.cornerRadius = kMessageTableViewCellAvatarHeight/2.0
+                _thumbnailView?.layer.cornerRadius = MessageTableViewCell.kMessageTableViewCellAvatarHeight / 2.0
                 _thumbnailView?.layer.masksToBounds = true
             }
             
@@ -77,11 +80,12 @@ class MessageTableViewCell: UITableViewCell {
     
     var indexPath: IndexPath!
     var usedForMessage: Bool = false
+    var isUser: Bool = false
     
     static func defaultFontSize() -> CGFloat {
         var pointSize: CGFloat = 16.0
         let contentSizeCategory = UIApplication.shared.preferredContentSizeCategory
-        pointSize += SLKPointSizeDifferenceForCategory(contentSizeCategory.rawValue) // is this right?
+        pointSize += SLKPointSizeDifferenceForCategory(contentSizeCategory.rawValue) // is this correct?
         
         return pointSize
     }
@@ -92,7 +96,7 @@ class MessageTableViewCell: UITableViewCell {
         self.selectionStyle = UITableViewCellSelectionStyle.none
         self.backgroundColor = UIColor.clear
         
-        self.configureSubviews()
+//        self.configureSubviews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -104,17 +108,25 @@ class MessageTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.labelView)
         self.contentView.addSubview(self.textView)
         
+        let quarterScreenWidth = UIScreen.main.bounds.width / 4
         let views = ["thumbnailView": self.thumbnailView, "labelView": self.labelView, "textView": self.textView]
-        let metrics = ["tumbSize": MessageTableViewCell.kMessageTableViewCellAvatarHeight, "padding": 15, "right": 10, "left":5]
+        let metrics = ["tumbSize": MessageTableViewCell.kMessageTableViewCellAvatarHeight, "padding": 15, "right": 10, "left": 5, "empty": quarterScreenWidth - MessageTableViewCell.kMessageTableViewCellAvatarHeight - 15, "quarter3": quarterScreenWidth * 3]
+        let options = NSLayoutFormatOptions(rawValue: 0)
         
-        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-left-[thumbnailView(tumbSize)]-right-[labelView(>=0)]-right-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
-        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-left-[thumbnailView(tumbSize)]-right-[textView(>=0)]-right-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
-        
-        if self.reuseIdentifier == MessageTableViewCell.messengerCellIdentifier {
-            self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-right-[labelView(20)]-left-[textView(>=0@999)]-left-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
+        if (!isUser) {
+            self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-left-[thumbnailView(tumbSize)]-right-[labelView(>=0)]-empty-|", options: options, metrics: metrics, views: views))
+            self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-left-[thumbnailView(tumbSize)]-right-[textView(>=0,<=quarter3)]-empty-|", options: options, metrics: metrics, views: views))
         }
         else {
-            self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[labelView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: views))
+            self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-empty-[thumbnailView(tumbSize)]-right-[labelView(>=0)]-left-|", options: options, metrics: metrics, views: views))
+            self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-empty-[thumbnailView(tumbSize)]-right-[textView(>=0,<=quarter3)]-left-|", options: options, metrics: metrics, views: views))
+        }
+        
+        if self.reuseIdentifier == MessageTableViewCell.messengerCellIdentifier {
+            self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-right-[labelView(20)]-left-[textView(>=0@999)]-left-|", options: options, metrics: metrics, views: views))
+        }
+        else {
+            self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[labelView]|", options: options, metrics: metrics, views: views))
         }
     }
     
