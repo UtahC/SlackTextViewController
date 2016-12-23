@@ -34,9 +34,9 @@ class MessageTableViewCell: UITableViewCell {
         }
     }
     var _textView: UITextView?
-    var textView: UITextView {
+    var textView: UITextView? {
         get {
-            if _textView == nil {
+            if _textView == nil && isUser {
                 _textView = UITextView()
                 _textView?.translatesAutoresizingMaskIntoConstraints = false
                 _textView?.backgroundColor = UIColor.lightGray
@@ -52,13 +52,12 @@ class MessageTableViewCell: UITableViewCell {
         }
     }
     var _webView: UIWebView?
-    var webView: UIWebView {
+    var webView: UIWebView? {
         get {
-            if _webView == nil {
-                _webView = UIWebView()
-            }
-            
-            return _webView!
+            return _webView
+        }
+        set {
+            _webView = newValue
         }
     }
     var _thumbnailView: UIImageView?

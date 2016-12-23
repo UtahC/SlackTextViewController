@@ -11,6 +11,7 @@ let DEBUG_CUSTOM_TYPING_INDICATOR = false
 class MessageViewController: SLKTextViewController {
     
     var messages = [Message]()
+    var webViewDic = [Int:(isLoaded:Bool, webView:UIWebView)]()
     
     var users: Array = ["Allen", "Anna", "Alicia", "Arnold", "Armando", "Antonio", "Brad", "Catalaya", "Christoph", "Emerson", "Eric", "Everyone", "Steve"]
     var channels: Array = ["General", "Random", "iOS", "Bugs", "Sports", "Android", "UI", "SSB"]
@@ -402,13 +403,13 @@ extension MessageViewController {
         receivedQuestion(message)
     }
     
-    func receivedQuestion(_ message: Message) {
+    func receivedQuestion(_ questionMessage: Message) {
         
-        let message = Message()
-        message.user = .Robot
-        message.text = "yoo"
+        let anwserMessage = Message()
+        anwserMessage.user = .Robot
+        anwserMessage.text = "<div style=\"word-break:break-all; background-color:#dddddd\">\(questionMessage.text)</div>"
         
-        insertMessage(message)
+        insertMessage(anwserMessage)
     }
     
     func insertMessage(_ message: Message) {
@@ -648,6 +649,7 @@ extension MessageViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if tableView == self.tableView {
+            let cell = tableView.cellForRow(at: indexPath) as! MessageTableViewCell
             let message = self.messages[(indexPath as NSIndexPath).row]
             
             let paragraphStyle = NSMutableParagraphStyle()
@@ -665,10 +667,13 @@ extension MessageViewController {
             width -= 25.0
             
             let titleBounds = ("\(message.user)" as NSString).boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
-            let bodyBounds = (message.text as NSString).boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+            var bodyBounds = (message.text as NSString).boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
             
             if message.text.characters.count == 0 {
                 return 0
+            }
+            if message.user == .Robot {
+                bodyBounds = cell.webView.bounds
             }
             
             var height = titleBounds.height

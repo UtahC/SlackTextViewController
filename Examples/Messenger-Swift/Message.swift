@@ -9,7 +9,7 @@
 import Foundation
 
 class Message {
-    var user: User = .Robot
+    var user: User = .You
     var text: String!
 }
 
