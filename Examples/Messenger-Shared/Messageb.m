@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Slack Technologies, Inc. All rights reserved.
 //
 
-#import "Message.h"
+#import "Messageb.h"
 
-@implementation Message
+@implementation Messageb
 
 @end

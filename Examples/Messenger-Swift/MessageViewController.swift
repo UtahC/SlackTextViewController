@@ -40,7 +40,8 @@ class MessageViewController: SLKTextViewController {
     func commonInit() {
         
         NotificationCenter.default.addObserver(self.tableView, selector: #selector(UITableView.reloadData), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
-        NotificationCenter.default.addObserver(self,  selector: #selector(MessageViewController.textInputbarDidMove(_:)), name: NSNotification.Name.SLKTextInputbarDidMove, object: nil)        
+//        NotificationCenter.default.addObserver(self.tableView, selector: #selector(UITableView.reloadData), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
+        NotificationCenter.default.addObserver(self,  selector: #selector(MessageViewController.textInputbarDidMove(_:)), name: NSNotification.Name.SLKTextInputbarDidMove, object: nil)
     }
     
     override func viewDidLoad() {
@@ -58,7 +59,7 @@ class MessageViewController: SLKTextViewController {
         self.commonInit()
         
         // Example's configuration
-        self.configureDataSource()
+//        self.configureDataSource()
         self.configureActionItems()
         
         // SLKTVC's configuration
@@ -87,9 +88,9 @@ class MessageViewController: SLKTextViewController {
         }
         
         self.tableView.separatorStyle = .none
-        self.tableView.register(MessageTableViewCell.classForCoder(), forCellReuseIdentifier: MessengerCellIdentifier)
+        self.tableView.register(MessageTableViewCell.classForCoder(), forCellReuseIdentifier: MessageTableViewCell.messengerCellIdentifier)
         
-        self.autoCompletionView.register(MessageTableViewCell.classForCoder(), forCellReuseIdentifier: AutoCompletionCellIdentifier)
+        self.autoCompletionView.register(MessageTableViewCell.classForCoder(), forCellReuseIdentifier: MessageTableViewCell.autoCompletionCellIdentifier)
         self.registerPrefixes(forAutoCompletion: ["@",  "#", ":", "+:", "/"])
         
         self.textView.placeholder = "Message";
@@ -391,8 +392,26 @@ extension MessageViewController {
         self.textView.refreshFirstResponder()
         
         let message = Message()
-        message.username = LoremIpsum.name()
+        message.username = "You"
         message.text = self.textView.text
+        
+        insertMessage(message)
+        
+        super.didPressRightButton(sender)
+        
+        receivedQuestion(message)
+    }
+    
+    func receivedQuestion(_ message: Message) {
+        
+        let message = Message()
+        message.username = "Robot"
+        message.text = "yoo"
+        
+        insertMessage(message)
+    }
+    
+    func insertMessage(_ message: Message) {
         
         let indexPath = IndexPath(row: 0, section: 0)
         let rowAnimation: UITableViewRowAnimation = self.isInverted ? .bottom : .top
@@ -408,8 +427,6 @@ extension MessageViewController {
         // Fixes the cell from blinking (because of the transform, when using translucent cells)
         // See https://github.com/slackhq/SlackTextViewController/issues/94#issuecomment-69929927
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
-        
-        super.didPressRightButton(sender)
     }
     
     override func didPressArrowKey(_ keyCommand: UIKeyCommand?) {
@@ -573,7 +590,7 @@ extension MessageViewController {
     
     func messageCellForRowAtIndexPath(_ indexPath: IndexPath) -> MessageTableViewCell {
         
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: MessengerCellIdentifier) as! MessageTableViewCell
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: MessageTableViewCell.messengerCellIdentifier) as! MessageTableViewCell
         
         if cell.gestureRecognizers?.count == nil {
             let longPress = UILongPressGestureRecognizer(target: self, action: #selector(MessageViewController.didLongPressCell(_:)))
@@ -582,8 +599,8 @@ extension MessageViewController {
 
         let message = self.messages[(indexPath as NSIndexPath).row]
         
-        cell.titleLabel.text = message.username
-        cell.bodyLabel.text = message.text
+        cell.labelView.text = message.username
+        cell.textView.text = message.text
         
         cell.indexPath = indexPath
         cell.usedForMessage = true
@@ -597,7 +614,7 @@ extension MessageViewController {
     
     func autoCompletionCellForRowAtIndexPath(_ indexPath: IndexPath) -> MessageTableViewCell {
         
-        let cell = self.autoCompletionView.dequeueReusableCell(withIdentifier: AutoCompletionCellIdentifier) as! MessageTableViewCell
+        let cell = self.autoCompletionView.dequeueReusableCell(withIdentifier: MessageTableViewCell.autoCompletionCellIdentifier) as! MessageTableViewCell
         cell.indexPath = indexPath
         cell.selectionStyle = .default
 
@@ -618,7 +635,7 @@ extension MessageViewController {
             text = ":\(text):"
         }
         
-        cell.titleLabel.text = text
+        cell.labelView.text = text
         
         return cell
     }
@@ -639,7 +656,7 @@ extension MessageViewController {
                 NSParagraphStyleAttributeName : paragraphStyle
             ]
             
-            var width = tableView.frame.width-kMessageTableViewCellAvatarHeight
+            var width = tableView.frame.width - MessageTableViewCell.kMessageTableViewCellAvatarHeight
             width -= 25.0
             
             let titleBounds = (message.username as NSString).boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
@@ -653,14 +670,14 @@ extension MessageViewController {
             height += bodyBounds.height
             height += 40
             
-            if height < kMessageTableViewCellMinimumHeight {
-                height = kMessageTableViewCellMinimumHeight
+            if height < MessageTableViewCell.kMessageTableViewCellMinimumHeight {
+                height = MessageTableViewCell.kMessageTableViewCellMinimumHeight
             }
             
             return height
         }
         else {
-            return kMessageTableViewCellMinimumHeight
+            return MessageTableViewCell.kMessageTableViewCellMinimumHeight
         }
     }
     

@@ -25,8 +25,8 @@
 		4F86BF7819F011D0007A3D4A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F86BF7619F011D0007A3D4A /* LaunchScreen.xib */; };
 		4F86BF9319F01234007A3D4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F86BF8E19F01234007A3D4A /* Images.xcassets */; };
 		4F86BF9419F01234007A3D4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F86BF8E19F01234007A3D4A /* Images.xcassets */; };
-		4F86BF9519F01234007A3D4A /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BF9019F01234007A3D4A /* MessageTableViewCell.m */; };
-		4F86BF9619F01234007A3D4A /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BF9019F01234007A3D4A /* MessageTableViewCell.m */; };
+		4F86BF9519F01234007A3D4A /* MessageTableViewCellb.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BF9019F01234007A3D4A /* MessageTableViewCellb.m */; };
+		4F86BF9619F01234007A3D4A /* MessageTableViewCellb.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BF9019F01234007A3D4A /* MessageTableViewCellb.m */; };
 		4F86BF9719F01234007A3D4A /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BF9219F01234007A3D4A /* MessageViewController.m */; };
 		4F86BF9819F01234007A3D4A /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BF9219F01234007A3D4A /* MessageViewController.m */; };
 		4F86BFC819F050AF007A3D4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BFC719F050AF007A3D4A /* AppDelegate.swift */; };
@@ -34,26 +34,28 @@
 		4F86BFCD19F050AF007A3D4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F86BFCB19F050AF007A3D4A /* Main.storyboard */; };
 		4F86BFD219F050AF007A3D4A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F86BFD019F050AF007A3D4A /* LaunchScreen.xib */; };
 		4F86BFE519F050DD007A3D4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F86BF8E19F01234007A3D4A /* Images.xcassets */; };
-		4F8ADA771A68C37400023752 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8ADA761A68C37400023752 /* Message.m */; };
-		4F8ADA781A68C37400023752 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8ADA761A68C37400023752 /* Message.m */; };
-		4F8ADA791A68C37400023752 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8ADA761A68C37400023752 /* Message.m */; };
+		4F8ADA771A68C37400023752 /* Messageb.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8ADA761A68C37400023752 /* Messageb.m */; };
+		4F8ADA781A68C37400023752 /* Messageb.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8ADA761A68C37400023752 /* Messageb.m */; };
+		4F8ADA791A68C37400023752 /* Messageb.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8ADA761A68C37400023752 /* Messageb.m */; };
 		4F9DFA7F1AD4EDB900841D98 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DFA7D1AD4EDB100841D98 /* ViewController.m */; };
 		4FF04E591B3F7A04004C3BED /* TypingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF04E581B3F7A04004C3BED /* TypingIndicatorView.m */; };
 		71BE10281A72F3E50083EE32 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BF9219F01234007A3D4A /* MessageViewController.m */; };
-		71BE10291A72F3E50083EE32 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BF9019F01234007A3D4A /* MessageTableViewCell.m */; };
-		71BE102B1A72F3E50083EE32 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8ADA761A68C37400023752 /* Message.m */; };
+		71BE10291A72F3E50083EE32 /* MessageTableViewCellb.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BF9019F01234007A3D4A /* MessageTableViewCellb.m */; };
+		71BE102B1A72F3E50083EE32 /* Messageb.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8ADA761A68C37400023752 /* Messageb.m */; };
 		71BE102C1A72F4180083EE32 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3EDB4E199ED00F004C15D6 /* CoreGraphics.framework */; };
 		71BE102D1A72F41E0083EE32 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3EDB50199ED00F004C15D6 /* UIKit.framework */; };
 		71BE102E1A72F4250083EE32 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3EDB4C199ED00F004C15D6 /* Foundation.framework */; };
 		71BE102F1A72F42F0083EE32 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F86BF8E19F01234007A3D4A /* Images.xcassets */; };
 		71BE10301A76C4890083EE32 /* MessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C6BA41A6E208E006E3FAB /* MessageTextView.m */; };
 		8C6D809F3C95C912F87F0D17 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFA9095EABC480682E6396C /* libPods.a */; };
-		9F4466C31C9A1B6B0001609A /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BF9019F01234007A3D4A /* MessageTableViewCell.m */; };
+		9F4466C31C9A1B6B0001609A /* MessageTableViewCellb.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F86BF9019F01234007A3D4A /* MessageTableViewCellb.m */; };
 		9F4466C51C9A1B6B0001609A /* MessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C6BA41A6E208E006E3FAB /* MessageTextView.m */; };
 		9F4466C71C9A1B6B0001609A /* TypingIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF04E581B3F7A04004C3BED /* TypingIndicatorView.m */; };
 		F556AFAE1BA7B41F009898BD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F556AFAD1BA7B41F009898BD /* QuartzCore.framework */; };
 		F5CD59211C9FE0EC00DD9A4E /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A1CC971C542EB600908ECB /* MessageViewController.swift */; };
 		F5DE01401B9679C4005E9082 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F86BF7619F011D0007A3D4A /* LaunchScreen.xib */; };
+		FBEF2D5E1E0CFE7100974B53 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF2D5D1E0CFE7100974B53 /* Message.swift */; };
+		FBEF2D601E0CFF5200974B53 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEF2D5F1E0CFF5200974B53 /* MessageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,8 +85,8 @@
 		4F86BF7219F011D0007A3D4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F86BF7719F011D0007A3D4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4F86BF8E19F01234007A3D4A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4F86BF8F19F01234007A3D4A /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
-		4F86BF9019F01234007A3D4A /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		4F86BF8F19F01234007A3D4A /* MessageTableViewCellb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCellb.h; sourceTree = "<group>"; };
+		4F86BF9019F01234007A3D4A /* MessageTableViewCellb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCellb.m; sourceTree = "<group>"; };
 		4F86BF9119F01234007A3D4A /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		4F86BF9219F01234007A3D4A /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		4F86BFC319F050AF007A3D4A /* Messenger-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Messenger-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,8 +95,8 @@
 		4F86BFCC19F050AF007A3D4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F86BFD119F050AF007A3D4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4F86BFE719F05519007A3D4A /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
-		4F8ADA751A68C37400023752 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
-		4F8ADA761A68C37400023752 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		4F8ADA751A68C37400023752 /* Messageb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Messageb.h; sourceTree = "<group>"; };
+		4F8ADA761A68C37400023752 /* Messageb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Messageb.m; sourceTree = "<group>"; };
 		4F9DFA7C1AD4EDB100841D98 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4F9DFA7D1AD4EDB100841D98 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4FF04E571B3F7A04004C3BED /* TypingIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypingIndicatorView.h; sourceTree = "<group>"; };
@@ -107,6 +109,8 @@
 		E76FE7634642D0C745F673A5 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F556AFAD1BA7B41F009898BD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F5A1CC971C542EB600908ECB /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		FBEF2D5D1E0CFE7100974B53 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		FBEF2D5F1E0CFF5200974B53 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,14 +294,14 @@
 			children = (
 				4F86BF9119F01234007A3D4A /* MessageViewController.h */,
 				4F86BF9219F01234007A3D4A /* MessageViewController.m */,
-				4F86BF8F19F01234007A3D4A /* MessageTableViewCell.h */,
-				4F86BF9019F01234007A3D4A /* MessageTableViewCell.m */,
+				4F86BF8F19F01234007A3D4A /* MessageTableViewCellb.h */,
+				4F86BF9019F01234007A3D4A /* MessageTableViewCellb.m */,
 				4F7C6BA31A6E208E006E3FAB /* MessageTextView.h */,
 				4F7C6BA41A6E208E006E3FAB /* MessageTextView.m */,
 				4FF04E571B3F7A04004C3BED /* TypingIndicatorView.h */,
 				4FF04E581B3F7A04004C3BED /* TypingIndicatorView.m */,
-				4F8ADA751A68C37400023752 /* Message.h */,
-				4F8ADA761A68C37400023752 /* Message.m */,
+				4F8ADA751A68C37400023752 /* Messageb.h */,
+				4F8ADA761A68C37400023752 /* Messageb.m */,
 				4F86BF8E19F01234007A3D4A /* Images.xcassets */,
 				4F86BFE719F05519007A3D4A /* Bridge-Header.h */,
 			);
@@ -308,8 +312,10 @@
 		4F86BFC419F050AF007A3D4A /* Swift Example */ = {
 			isa = PBXGroup;
 			children = (
-				4F86BFC719F050AF007A3D4A /* AppDelegate.swift */,
 				F5A1CC971C542EB600908ECB /* MessageViewController.swift */,
+				FBEF2D5F1E0CFF5200974B53 /* MessageTableViewCell.swift */,
+				FBEF2D5D1E0CFE7100974B53 /* Message.swift */,
+				4F86BFC719F050AF007A3D4A /* AppDelegate.swift */,
 				4F86BFCB19F050AF007A3D4A /* Main.storyboard */,
 				4F86BFD019F050AF007A3D4A /* LaunchScreen.xib */,
 				4F86BFC519F050AF007A3D4A /* Supporting Files */,
@@ -648,8 +654,8 @@
 			files = (
 				4F86BF9719F01234007A3D4A /* MessageViewController.m in Sources */,
 				4F3EDB5D199ED00F004C15D6 /* AppDelegate.m in Sources */,
-				4F8ADA771A68C37400023752 /* Message.m in Sources */,
-				4F86BF9519F01234007A3D4A /* MessageTableViewCell.m in Sources */,
+				4F8ADA771A68C37400023752 /* Messageb.m in Sources */,
+				4F86BF9519F01234007A3D4A /* MessageTableViewCellb.m in Sources */,
 				4FF04E591B3F7A04004C3BED /* TypingIndicatorView.m in Sources */,
 				4F3EDB59199ED00F004C15D6 /* main.m in Sources */,
 				4F32561E1AA77431008C1DD9 /* MessageTextView.m in Sources */,
@@ -663,8 +669,8 @@
 				4F9DFA7F1AD4EDB900841D98 /* ViewController.m in Sources */,
 				71BE10301A76C4890083EE32 /* MessageTextView.m in Sources */,
 				4F86BF9819F01234007A3D4A /* MessageViewController.m in Sources */,
-				4F86BF9619F01234007A3D4A /* MessageTableViewCell.m in Sources */,
-				4F8ADA781A68C37400023752 /* Message.m in Sources */,
+				4F86BF9619F01234007A3D4A /* MessageTableViewCellb.m in Sources */,
+				4F8ADA781A68C37400023752 /* Messageb.m in Sources */,
 				4F86BF6A19F011D0007A3D4A /* main.m in Sources */,
 				4F32561C1AA77427008C1DD9 /* AppDelegate.m in Sources */,
 			);
@@ -674,12 +680,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F4466C31C9A1B6B0001609A /* MessageTableViewCell.m in Sources */,
+				9F4466C31C9A1B6B0001609A /* MessageTableViewCellb.m in Sources */,
+				FBEF2D601E0CFF5200974B53 /* MessageTableViewCell.swift in Sources */,
 				F5CD59211C9FE0EC00DD9A4E /* MessageViewController.swift in Sources */,
 				9F4466C51C9A1B6B0001609A /* MessageTextView.m in Sources */,
 				9F4466C71C9A1B6B0001609A /* TypingIndicatorView.m in Sources */,
 				4F86BFCA19F050AF007A3D4A /* (null) in Sources */,
-				4F8ADA791A68C37400023752 /* Message.m in Sources */,
+				FBEF2D5E1E0CFE7100974B53 /* Message.swift in Sources */,
+				4F8ADA791A68C37400023752 /* Messageb.m in Sources */,
 				4F86BFC819F050AF007A3D4A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -689,8 +697,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				71BE10281A72F3E50083EE32 /* MessageViewController.m in Sources */,
-				71BE10291A72F3E50083EE32 /* MessageTableViewCell.m in Sources */,
-				71BE102B1A72F3E50083EE32 /* Message.m in Sources */,
+				71BE10291A72F3E50083EE32 /* MessageTableViewCellb.m in Sources */,
+				71BE102B1A72F3E50083EE32 /* Messageb.m in Sources */,
 				4F32561B1AA77386008C1DD9 /* main.m in Sources */,
 				4F3256191AA77386008C1DD9 /* AppDelegate.m in Sources */,
 				4F32561D1AA77430008C1DD9 /* MessageTextView.m in Sources */,

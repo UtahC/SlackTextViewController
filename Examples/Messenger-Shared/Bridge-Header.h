@@ -4,8 +4,8 @@
 
 #import <SLKTextViewController.h>
 
-#import "Message.h"
-#import "MessageTableViewCell.h"
+//#import "Message.h"
+//#import "MessageTableViewCell.h"
 #import "MessageTextView.h"
 #import "TypingIndicatorView.h"
 
